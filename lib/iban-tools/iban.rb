@@ -8,23 +8,24 @@ module IBANTools
     end
 
     def initialize( code )
-      @code = IBAN.canonicalize_code(code)
+      @code = self.class.canonicalize_code(code)
     end
 
     def validation_errors( rules = nil )
       errors = []
       return [:too_short] if @code.size < 5
       return [:bad_chars] unless @code =~ /^[A-Z0-9]+$/
-      errors += validation_errors_against_rules( rules || IBAN.default_rules )
+      errors += validation_errors_against_rules( rules || self.class.default_rules )
       errors << :bad_check_digits unless valid_check_digits?
       errors
     end
 
     def validation_errors_against_rules( rules )
       errors = []
-      return [:unknown_country_code] if rules[country_code].nil?
-      errors << :bad_length if rules[country_code]["length"] != @code.size
-      errors << :bad_format unless bban =~ rules[country_code]["bban_pattern"]
+      return [:bad_country_code] if rules[country_code].nil?
+      errors << :too_short if @code.size < valid_length(rules)
+      errors << :too_long if @code.size > valid_length(rules)
+      errors << :bad_format unless bban =~ rules[country_code]['bban_pattern']
       errors
     end
 
@@ -45,6 +46,20 @@ module IBANTools
 
     def bban
       @code[4..-1]
+    end
+
+    # return the valid iban length for
+    # a specific country code
+    def valid_length( rules = nil )
+      r = rules || self.class.default_rules
+      return r[country_code]? r[country_code]['length'] : nil
+    end
+
+    # check if the iban number supports
+    # SEPA transfers
+    def sepa?( rules = nil )
+      r = rules || self.class.default_rules
+      return r[country_code]? r[country_code]['sepa'] == true : false
     end
 
     def valid_check_digits?

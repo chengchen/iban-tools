@@ -1,282 +1,449 @@
-# Data from http://www.tbg5-finance.org/?ibandocs.shtml/
+# ref http://www.swift.com/dsp/resources/documents/IBAN_Registry.pdf
+
 
 'AD':
   # Andorra
   length: 24
   bban_pattern: '\d{8}[A-Z0-9]{12}'
+  sepa: false
+
 
 'AE':
   # United Arab Emirates
   length: 23
   bban_pattern: '\d{19}'
+  sepa: false
+
 
 'AL':
   # Albania
   length: 28
   bban_pattern: '\d{8}[A-Z0-9]{16}'
+  sepa: false
+
 
 'AT':
   # Austria
   length: 20
   bban_pattern: '\d{16}'
+  sepa: true
+
+
+'AZ':
+  # Azerbaijan
+  length: 28
+  bban_pattern: '\d{16}'
+  sepa: false
+
 
 'BA':
   # Bosnia
   length: 20
   bban_pattern: '\d{16}'
+  sepa: false
+
 
 'BE':
   # Belgium
   length: 16
   bban_pattern: '\d{12}'
+  sepa: true
+
 
 'BG':
   # Bulgaria
   length: 22
   bban_pattern: '[A-Z]{4}\d{6}[A-Z0-9]{8}'
+  sepa: true
+
 
 'BH':
   # Bahrain
   length: 22
   bban_pattern: '[A-Z]{4}[A-Z0-9]{14}'
+  sepa: false
+
+
+'BR':
+  # Brazil
+  length: 29
+  bban_pattern: '\d{24}[A-Z]'
+  sepa: false
+
 
 'CH':
   # Switzerland
   length: 21
   bban_pattern: '\d{5}[A-Z0-9]{12}'
+  sepa: true
+
+
+'CR':
+  # Costa Rica
+  length: 21
+  bban_pattern: '\d{17}'
+  sepa: false
+
 
 'CY':
   # Cyprus
   length: 28
   bban_pattern: '\d{8}[A-Z0-9]{16}'
+  sepa: true
+
 
 'CZ':
   # Czech Republic
   length: 24
   bban_pattern: '\d{20}'
+  sepa: true
+
 
 'DE':
   # Germany
   length: 22
   bban_pattern: '\d{18}'
+  sepa: true
+
 
 'DK':
   # Denmark
   length: 18
   bban_pattern: '\d{14}'
+  sepa: true
+
 
 'DO':
   # Dominican Republic
   length: 28
   bban_pattern: '[A-Z]{4}\d{20}'
+  sepa: false
+
 
 'EE':
   # Estonia
   length: 20
   bban_pattern: '\d{16}'
+  sepa: true
+
 
 'ES':
   # Spain
   length: 24
   bban_pattern: '\d{20}'
+  sepa: true
+
 
 'FI':
   # Finland
   length: 18
   bban_pattern: '\d{14}'
+  sepa: true
+
 
 'FO':
   # Faroe Islands
   length: 18
   bban_pattern: '\d{14}'
+  sepa: true
+
 
 'FR':
   # France
   length: 27
   bban_pattern: '\d{10}[A-Z0-9]{11}\d{2}'
+  sepa: true
+
 
 'GB':
   # United Kingdom
   length: 22
   bban_pattern: '[A-Z]{4}\d{14}'
+  sepa: true
+
 
 'GE':
   # Georgia
   length: 22
   bban_pattern: '[A-Z]{2}\d{16}'
+  sepa: false
+
 
 'GI':
   # Gibraltar
   length: 23
   bban_pattern: '[A-Z]{4}[A-Z0-9]{15}'
+  sepa: true
+
 
 'GL':
   # Greenland
   length: 18
   bban_pattern: '\d{14}'
+  sepa: true
+
 
 'GR':
   # Greece
   length: 27
   bban_pattern: '\d{7}[A-Z0-9]{16}'
+  sepa: true
+
+
+'GT':
+  # Guatemala
+  length: 28
+  bban_pattern: '[A-Z0-9]{24}'
+  sepa: false
+
 
 'HR':
   # Croatia
   length: 21
   bban_pattern: '\d{17}'
+  sepa: false
+
 
 'HU':
   # Hungary
   length: 28
   bban_pattern: '\d{24}'
+  sepa: true
+
 
 'IE':
   # Ireland
   length: 22
   bban_pattern: '[A-Z]{4}\d{14}'
+  sepa: true
+
 
 'IL':
   # Israel
   length: 23
   bban_pattern: '\d{19}'
+  sepa: false
+
 
 'IS':
   # Iceland
   length: 26
   bban_pattern: '\d{22}'
+  sepa: true
+
 
 'IT':
   # Italy
   length: 27
   bban_pattern: '[A-Z]\d{10}[A-Z0-9]{12}'
+  sepa: true
+
 
 'KW':
   # Kuwait
   length: 30
   bban_pattern: '[A-Z]{4}\d{22}'
+  sepa: false
+
 
 'KZ':
   # Kazakhstan
   length: 20
   bban_pattern: '[0-9]{3}[A-Z0-9]{13}'
+  sepa: false
+
 
 'LB':
   # Lebanon
   length: 28
   bban_pattern: '\d{4}[A-Z0-9]{20}'
+  sepa: false
+
 
 'LI':
   # Liechtenstein
   length: 21
   bban_pattern: '\d{5}[A-Z0-9]{12}'
+  sepa: true
+
 
 'LT':
   # Lithuania
   length: 20
   bban_pattern: '\d{16}'
+  sepa: true
+
 
 'LU':
   # Luxembourg
   length: 20
   bban_pattern: '\d{3}[A-Z0-9]{13}'
+  sepa: true
+
 
 'LV':
   # Latvia
   length: 21
   bban_pattern: '[A-Z]{4}[A-Z0-9]{13}'
+  sepa: true
+
 
 'MC':
   # Monaco
   length: 27
   bban_pattern: '\d{10}[A-Z0-9]{11}\d{2}'
+  sepa: true
+
+
+'MD':
+  # Moldova
+  length: 24
+  bban_pattern: '[A-Z0-9]{20}'
+  sepa: false
+
 
 'ME':
   # Montenegro
   length: 22
   bban_pattern: '\d{18}'
+  sepa: false
+
 
 'MK':
   # Macedonia
   length: 19
   bban_pattern: '\d{3}[A-Z0-9]{10}\d{2}'
+  sepa: false
+
 
 'MR':
   # Mauritania
   length: 27
   bban_pattern: '\d{23}'
+  sepa: false
+
 
 'MT':
   # Malta
   length: 31
   bban_pattern: '[A-Z]{4}\d{5}[A-Z0-9]{18}'
+  sepa: true
+
 
 'MU':
   # Mauritius
   length: 30
   bban_pattern: '[A-Z]{4}\d{19}[A-Z]{3}'
+  sepa: false
+
 
 'NL':
   # Netherlands
   length: 18
   bban_pattern: '[A-Z]{4}\d{10}'
+  sepa: true
+
 
 'NO':
   # Norway
   length: 15
   bban_pattern: '\d{11}'
+  sepa: true
+
+
+'PK':
+  # Pakistan
+  length: 24
+  bban_pattern: '[A-Z]{4}[A-Z0-9]{16}'
+  sepa: false
+
 
 'PL':
   # Poland
   length: 28
-  bban_pattern: '\d{8}[A-Z0-9]{16}'
+  bban_pattern: '\d{24}'
+  sepa: true
+
+
+'PS':
+  # Palestine
+  length: 29
+  bban_pattern: '[A-Z]{4}[A-Z0-9]{21}'
+  sepa: false
+
 
 'PT':
   # Portugal
   length: 25
   bban_pattern: '\d{21}'
+  sepa: true
+
 
 'RO':
   # Romania
   length: 24
   bban_pattern: '[A-Z]{4}[A-Z0-9]{16}'
+  sepa: true
+
 
 'RS':
   # Serbia
   length: 22
   bban_pattern: '\d{18}'
+  sepa: false
+
 
 'SA':
   # Saudi Arabia
   length: 24
   bban_pattern: '\d{2}[A-Z0-9]{18}'
+  sepa: false
+
 
 'SE':
   # Sweden
   length: 24
   bban_pattern: '\d{20}'
+  sepa: true
+
 
 'SI':
   # Slovenia
   length: 19
   bban_pattern: '\d{15}'
+  sepa: true
+
 
 'SK':
   # Slovakia
   length: 24
   bban_pattern: '\d{20}'
+  sepa: true
+
 
 'SM':
   # San Marino
   length: 27
   bban_pattern: '[A-Z]\d{10}[A-Z0-9]{12}'
+  sepa: false
+
 
 'TN':
   # Tunisia
   length: 24
   bban_pattern: '\d{20}'
+  sepa: false
+
 
 'TR':
   # Turkey
   length: 26
   bban_pattern: '\d{5}[A-Z0-9]{17}'
+  sepa: false
 
+
+'VG':
+  # Virgin Islands
+  length: 24
+  bban_pattern: '[A-Z]{4}\d{16}'
+  sepa: false

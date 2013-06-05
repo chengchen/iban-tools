@@ -4,7 +4,7 @@ require 'iban-tools'
 
 module IBANTools
   describe IBAN do
-  
+
     describe "with test rules" do
 
       before(:each) do
@@ -24,14 +24,21 @@ module IBANTools
       it "should reject IBAN code from unknown country" do
         # Norway is not present in @rules
         IBAN.new("NO9386011117947").validation_errors(@rules).
-          should == [:unknown_country_code]
+          should == [:bad_country_code]
       end
 
-      it "should reject IBAN code that does not match the length for the respective country" do
+      it "should reject IBAN code which is too short for the respective country" do
         IBAN.new("GB88 WEST 1234 5698 7654 3").validation_errors(@rules).
-          should == [:bad_length]
+          should == [:too_short]
           # Length is 21, should be 22.
           # check digits are good though
+      end
+
+      it "should reject IBAN code which is too long for the respective country" do
+        IBAN.new("GB88 WEST 1234 5698 7654 347").validation_errors(@rules).
+            should include(:too_long)
+        # Length is 23, should be 22.
+        # check digits are good though
       end
 
       it "should reject IBAN code that does not match the pattern for the selected country" do
@@ -78,6 +85,18 @@ module IBANTools
 
     it "should extract BBAN (Basic Bank Account Number)" do
       IBAN.new("NO9386011117947").bban.should == "86011117947"
+    end
+
+    it "should return the valid iban length" do
+      IBAN.new("CH9300762011623852957").valid_length(@rules).should == 21
+    end
+
+    it "should return the valid iban length even if it is invalid" do
+      IBAN.new("CH4149124").valid_length(@rules).should == 21
+    end
+
+    it "should tell if this iban supports SEPA transfers" do
+      IBAN.new("CH9300762011623852957").sepa?(@rules).should == true
     end
 
     describe "with default rules" do

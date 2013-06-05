@@ -24,7 +24,7 @@ module IBANTools
       it "should reject IBAN code from unknown country" do
         # Norway is not present in @rules
         IBAN.new("NO9386011117947").validation_errors(@rules).
-          should == [:bad_country_code]
+          should == [:unknown_country_code]
       end
 
       it "should reject IBAN code which is too short for the respective country" do
@@ -94,8 +94,16 @@ module IBANTools
       IBAN.new("CH4149124").valid_length(@rules).should == 21
     end
 
+    it "should not return the valid iban length if the country code is not right" do
+      IBAN.new("XX4149124").valid_length(@rules).should == nil
+    end
+
     it "should tell if this iban supports SEPA transfers" do
       IBAN.new("CH9300762011623852957").sepa?(@rules).should == true
+    end
+
+    it "should return false if the country code is not right" do
+      IBAN.new("XX9300762011623852957").sepa?(@rules).should == false
     end
 
     describe "with default rules" do

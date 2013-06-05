@@ -22,7 +22,7 @@ module IBANTools
 
     def validation_errors_against_rules( rules )
       errors = []
-      return [:bad_country_code] if rules[country_code].nil?
+      return [:unknown_country_code] if rules[country_code].nil?
       errors << :too_short if @code.size < valid_length(rules)
       errors << :too_long if @code.size > valid_length(rules)
       errors << :bad_format unless bban =~ rules[country_code]['bban_pattern']

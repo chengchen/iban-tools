@@ -38,7 +38,6 @@ module IBANTools
         IBAN.new("GB88 WEST 1234 5698 7654 347").validation_errors(@rules).
             should include(:too_long)
         # Length is 23, should be 22.
-        # check digits are good though
       end
 
       it "should reject IBAN code that does not match the pattern for the selected country" do

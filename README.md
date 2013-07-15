@@ -48,3 +48,9 @@ Pretty print, canonicalize, and extract fields from an IBAN code
 
     iban.prettify
     => "RO49 AAAA 1B31 0075 9384 0000"
+
+    iban.valid_length
+    => 24
+
+    iban.sepa?
+    => true
